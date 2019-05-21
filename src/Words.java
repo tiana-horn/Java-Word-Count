@@ -29,8 +29,8 @@ public class Words {
 			// Parse through url and get text
 			document = Jsoup.connect("https://people.com/tag/meghan-markle/").get();
 			
-			String title = document.title();
-			print("Title: "+ title);
+			String words = document.text();
+			print("Text: "+ words);
 		
 		
 		} catch (IOException e) {
