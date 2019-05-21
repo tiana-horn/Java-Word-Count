@@ -24,12 +24,10 @@ public class Words {
 
 	public static void main(String[] args) {
 		System.out.println("running...");
-		Document document;
+		String words;
 		try {
 			// Parse through url and get text
-			document = Jsoup.connect("https://people.com/tag/meghan-markle/").get();
-			
-			String words = document.text();
+			words = Jsoup.connect("https://people.com/tag/meghan-markle/").get().text();
 			print("Text: "+ words);
 		
 		
