@@ -19,17 +19,31 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.util.Scanner;
+
+
 
 public class Words {
 
+	
 	public static void main(String[] args) {
 		System.out.println("running...");
+		
+		
 		String words;
 		try {
+			// Request URL from user
+			System.out.println("Please submit a url and hit enter: ");
+			Scanner userurl = new Scanner(System.in);
+			
+			if (userurl.hasNextLine()) {
+				String url = userurl.nextLine();
+			
+			
 			// Parse through url and get text
-			words = Jsoup.connect("https://people.com/tag/meghan-markle/").get().text();
+			words = Jsoup.connect(url).get().text();
 			print("Text: "+ words);
-		
+			}
 		
 		} catch (IOException e) {
 			e.printStackTrace();
