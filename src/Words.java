@@ -13,12 +13,40 @@ sort through data to find biggest numbers
  * 
  */
 
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
 
 public class Words {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("running...");
+		Document document;
+		try {
+			// Parse through url and get text
+			document = Jsoup.connect("https://people.com/tag/meghan-markle/").get();
+			
+			String title = document.title();
+			print("Title: "+ title);
+		
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		print("done");
+		
 	}
+	
+	public static void print(String string) {
+		System.out.println(string);
+	}
+		
+		
+		
 
 }
+
+
