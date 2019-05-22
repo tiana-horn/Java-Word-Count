@@ -48,7 +48,6 @@ public class Words {
 		
 		for(String word : words) {
 			int count = 0;
-			count++;
 			System.out.println(word );
 			
 		}
