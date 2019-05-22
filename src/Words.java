@@ -24,36 +24,36 @@ import java.util.Scanner;
 
 
 public class Words {
+	
+	private static String words;
+	static Scanner userurl = new Scanner(System.in); {
+
+	try {
+		// Request URL from user
+		System.out.println("Please paste a url and hit enter: ");
+		
+		// Make sure user input is a string
+		if (userurl.hasNextLine()) {
+			String url = userurl.nextLine();
+		
+		//
+		System.out.println("Thank you, text from your url will appear below shortly \n");	
+		
+		// Parse through url and get text
+		words = Jsoup.connect(url).get().text();
+		System.out.println(words);
+		
+		}
+	
+	// log any errors
+	} catch (IOException e) {
+		e.printStackTrace(); }
+	}
 
 	
 	public static void main(String[] args) {
-		System.out.println("running...");
+		Words theWords = new Words();
 		
-		
-		String words;
-		try {
-			// Request URL from user
-			System.out.println("Please submit a url and hit enter: ");
-			Scanner userurl = new Scanner(System.in);
-			
-			if (userurl.hasNextLine()) {
-				String url = userurl.nextLine();
-			
-			
-			// Parse through url and get text
-			words = Jsoup.connect(url).get().text();
-			print("Text: "+ words);
-			}
-		
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		print("done");
-		
-	}
-	
-	public static void print(String string) {
-		System.out.println(string);
 	}
 		
 		
