@@ -41,14 +41,18 @@ public class Words {
 		
 		// Parse through url and get text
 		String words = Jsoup.connect(url).get().text();
-		Scanner s = new Scanner(words).useDelimiter("\\s* \\s*");
-		System.out.println(s.next());
-		System.out.println(s.next());
+		Scanner w = new Scanner(words).useDelimiter("\\s* \\s*");
 		
-		String[] stringArray = {s.next()};
+		while(w.hasNext()) {
+			System.out.println(w.next());	
+		}
 		
-		int size = stringArray.length;
-		System.out.println(size);
+	
+		
+		
+		
+		String[] stringArray = {w.next()};
+		
 		
 		for(String word : stringArray) {
 			System.out.println("Text" + words);
