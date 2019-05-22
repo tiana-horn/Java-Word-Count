@@ -36,13 +36,24 @@ public class Words {
 		if (userurl.hasNextLine()) {
 			String url = userurl.nextLine();
 		
-		//
+		//Let user know the text is loading
 		System.out.println("Thank you, text from your url will appear below shortly \n");	
 		
 		// Parse through url and get text
-		words = Jsoup.connect(url).get().text();
-		System.out.println(words);
+		String words = Jsoup.connect(url).get().text();
+		Scanner s = new Scanner(words).useDelimiter("\\s* \\s*");
+		System.out.println(s.next());
+		System.out.println(s.next());
 		
+		String[] stringArray = {s.next()};
+		
+		int size = stringArray.length;
+		System.out.println(size);
+		
+		for(String word : stringArray) {
+			System.out.println("Text" + words);
+			
+		}
 		}
 	
 	// log any errors
@@ -50,7 +61,7 @@ public class Words {
 		e.printStackTrace(); }
 	}
 
-	
+	// Call function
 	public static void main(String[] args) {
 		Words theWords = new Words();
 		

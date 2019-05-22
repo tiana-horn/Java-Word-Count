@@ -7,13 +7,15 @@
 
 public class Count extends Words{
 		public Count() {
+			
+
 	
 		}
 
 
 	public static void main(String[] args) {
 		
-		Words urlText = new Count();
+		Count wordCount = new Count();
 
 	}
 	
