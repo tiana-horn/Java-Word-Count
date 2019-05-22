@@ -9,12 +9,14 @@ public class Count extends Words{
 		public Count() {
 			
 		}
+	
+		
 
 
 	public static void main(String[] args) {
 		
 		Count wordCount = new Count();
-			
+		
 	}
 	
 }

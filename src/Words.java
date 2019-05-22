@@ -20,7 +20,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.Scanner;
-import java.util.regex.MatchResult;
 
 
 
@@ -42,16 +41,14 @@ public class Words {
 		
 		// Parse through url and get text
 		String[] words = Jsoup.connect(url).get().text().split(" ");
+		
 		int size = words.length;
 		System.out.println(size);
 		
-		for(String word: words) {
+		for(String word : words) {
 			System.out.println(word);
 			
 		}
-		
-		
-
 		}
 	
 	// log any errors
@@ -69,5 +66,6 @@ public class Words {
 		
 
 }
+
 
 
