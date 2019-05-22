@@ -26,6 +26,7 @@ import java.util.Scanner;
 public class Words {
 	
 	private static String words;
+	public int count;
 	static Scanner userurl = new Scanner(System.in); {
 
 	try {
@@ -46,7 +47,8 @@ public class Words {
 		System.out.println(size);
 		
 		for(String word : words) {
-			System.out.println(word);
+			int count = 0;
+			System.out.println(word );
 			
 		}
 		}
