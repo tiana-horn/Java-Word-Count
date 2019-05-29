@@ -7,29 +7,16 @@ Steps:
 Use Jsoup to parse info and get all words from page
 Loop through and store count of how many times each word appears
 sort through data to find biggest numbers
-
- * 
- * 
- * 
  */
 
-
 import java.io.IOException;
-
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
 import java.util.Scanner;
 import java.util.Hashtable;
 import java.util.Map;
 
-
-
-
 public class Words {
 	
-	private static String words;
 	public int count;
 	public int num=1;
 	static Scanner userurl = new Scanner(System.in); {
@@ -53,11 +40,12 @@ public class Words {
 		System.out.println(size);
 		
 		// Make a map of the words
-		Map<String,Integer>wordCount = new Hashtable();
+		Map<String,Integer> wordCount = new Hashtable();
 		
-		// set the words as keys in the map
+		// for each word taken from the url
 		for(String word : words) {
 			
+			// calculate how many times that word appears
 			String searchKey = word;
 			if(wordCount.containsKey(searchKey)) {
 				int num = wordCount.get(word);
@@ -71,12 +59,9 @@ public class Words {
 		
 		// print out the Map
 		for(Object key: wordCount.keySet()) {
-			System.out.println(key + ":" + wordCount.get(key));	
-		
-		}
-
-		
-		
+			System.out.println("\"" + key + "\"" + " appears " + wordCount.get(key) + " times.");	
+			System.out.println();
+		}	
 		}
 		}
 	
@@ -90,10 +75,4 @@ public class Words {
 		Words theWords = new Words();
 		
 	}
-		
-		
-		
-
 }
-
-
