@@ -58,9 +58,10 @@ public class Words {
 		// set the words as keys in the map
 		for(String word : words) {
 			wordCount.put(word, count);	
-			count++;
 			
 		}
+		
+		// print out the Map
 		for(Object key: wordCount.keySet()) {
 			System.out.println(key + ":" + wordCount.get(key));	
 		}
