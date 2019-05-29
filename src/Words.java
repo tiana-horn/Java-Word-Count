@@ -13,6 +13,7 @@ sort through data to find biggest numbers
  * 
  */
 
+
 import java.io.IOException;
 
 import org.jsoup.Jsoup;
@@ -20,6 +21,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.Scanner;
+import java.util.Hashtable;
+import java.util.Map;
 
 
 
@@ -43,14 +46,28 @@ public class Words {
 		// Parse through url and get text
 		String[] words = Jsoup.connect(url).get().text().split(" ");
 		
+		
+		// get the number of words in the url
 		int size = words.length;
 		System.out.println(size);
 		
+		// Make a map of the words
+		Map wordCount = new Hashtable();
+		
+		
+		// set the words as keys in the map
 		for(String word : words) {
-			int count = 0;
-			System.out.println(word );
+			wordCount.put(word, count);	
+			count++;
 			
 		}
+		for(Object key: wordCount.keySet()) {
+			System.out.println(key + ":" + wordCount.get(key));	
+		}
+		
+
+		
+		
 		}
 	
 	// log any errors
@@ -68,6 +85,5 @@ public class Words {
 		
 
 }
-
 
 
