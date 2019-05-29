@@ -12,8 +12,15 @@ sort through data to find biggest numbers
 import java.io.IOException;
 import org.jsoup.Jsoup;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.HashMap;
+
+
 
 public class Words {
 	
@@ -35,12 +42,8 @@ public class Words {
 		// Parse through url and get text
 		String[] words = Jsoup.connect(url).get().text().split(" ");
 		
-		// get the number of words in the url
-		int size = words.length;
-		System.out.println(size);
-		
 		// Make a map of the words
-		Map<String,Integer> wordCount = new Hashtable();
+		Map<String,Integer> wordCount = new HashMap<String,Integer>();
 		
 		// for each word taken from the url
 		for(String word : words) {
@@ -55,20 +58,57 @@ public class Words {
 			} else {
 				wordCount.put(word,num);
 			}
-
+			
+	
+//			int[] sortCount = {num};
+//			Arrays.sort(sortCount);
+//			
+//			for(int num: sortCount) {
+//				System.out.println(wordCount.get(word) + ":" + word);
+//			}
+			
+//			 working code to print unsorted Map 
+//		for(Object key: wordCount.keySet()) {
+//			System.out.println("\"" + key + "\"" + " appears " + wordCount.get(key) + " times.");	
+//		System.out.println();
+//		}
 		
-		// print out the Map
-		for(Object key: wordCount.keySet()) {
-			System.out.println("\"" + key + "\"" + " appears " + wordCount.get(key) + " times.");	
-			System.out.println();
-		}	
+		}
+
+		System.out.println(wordCount);
+		System.out.println();
+		
+		Map.Entry<String,Integer> maxEntry = null;
+		for(int i = 0;i <=25; i++) {
+		
+		for (Map.Entry<String,Integer> entry: wordCount.entrySet()) {
+			
+			 while(maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+			{		
+				maxEntry = entry;
+	
+			} 
+			wordCount.remove(maxEntry);
 		}
 		}
+		
+		System.out.println(maxEntry);
+		}
+		
+//		LinkedList<Map.Entry<String,Integer>> list = new LinkedList<>(counter.entrySet());
+//		Comparator<Map.Entry<String,Integer>> comparator = Comparator.comparing(Map.Entry::getValue);
+//		Collections.sort(list, comparator);
+//		}
+		
+		
+		
 	
 	// log any errors
 	} catch (IOException e) {
 		e.printStackTrace(); }
 	}
+	
+
 
 	// Call function
 	public static void main(String[] args) {
