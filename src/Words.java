@@ -26,10 +26,12 @@ import java.util.Map;
 
 
 
+
 public class Words {
 	
 	private static String words;
 	public int count;
+	public int num=1;
 	static Scanner userurl = new Scanner(System.in); {
 
 	try {
@@ -46,29 +48,36 @@ public class Words {
 		// Parse through url and get text
 		String[] words = Jsoup.connect(url).get().text().split(" ");
 		
-		
 		// get the number of words in the url
 		int size = words.length;
 		System.out.println(size);
 		
 		// Make a map of the words
-		Map wordCount = new Hashtable();
-		
+		Map<String,Integer>wordCount = new Hashtable();
 		
 		// set the words as keys in the map
 		for(String word : words) {
-			wordCount.put(word, count);	
 			
-		}
+			String searchKey = word;
+			if(wordCount.containsKey(searchKey)) {
+				int num = wordCount.get(word);
+				num++;
+				wordCount.put(word, num);
+							
+			} else {
+				wordCount.put(word,num);
+			}
+
 		
 		// print out the Map
 		for(Object key: wordCount.keySet()) {
 			System.out.println(key + ":" + wordCount.get(key));	
-		}
 		
+		}
 
 		
 		
+		}
 		}
 	
 	// log any errors
