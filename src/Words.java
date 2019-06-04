@@ -46,7 +46,6 @@ public class Words {
 			
 			// ignore special characters
 			String spec[] = {"!", "@", "#", "$", "%", "^", "&", "*", "•", "-", ",","","/","=", "//", "{", "("};
-			
 			for(String c:spec) {
 				wordCount.remove(c);
 			}
