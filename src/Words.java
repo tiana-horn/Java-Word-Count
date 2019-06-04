@@ -14,6 +14,9 @@ import org.jsoup.Jsoup;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 
 public class Words {
 	
@@ -27,8 +30,8 @@ public class Words {
 		
 		// Make sure user input is a string
 		if (userurl.hasNextLine()) {
-			String url = userurl.nextLine();
-		
+			String url = userurl.nextLine();	
+			
 		//Let user know the text is loading
 		System.out.println("Thank you, the top 25 words from your url will appear below, along with the number of times they are seen on the page \n");	
 		
@@ -41,8 +44,17 @@ public class Words {
 		// for each word taken from the url
 		for(String word : words) {
 			
+			// ignore special characters
+			String spec[] = {"!", "@", "#", "$", "%", "^", "&", "*", "•", "-", ",","","/","=", "//", "{", "("};
+			
+			for(String c:spec) {
+				wordCount.remove(c);
+			}
+			
 			// calculate how many times that word appears
 			String searchKey = word;
+			
+			
 			if(wordCount.containsKey(searchKey)) {
 				int num = wordCount.get(word);
 				num++;
